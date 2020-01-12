@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+
+import Home from './pages/Home/Home';
 
 function App() {
-  return <h1>Setup</h1>;
+  return <Home />;
 }
 
 export default App;
