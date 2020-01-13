@@ -9,6 +9,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -19,6 +20,22 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'linebreak-style': 0,
-    'object-curly-newline': ['error', { multiline: true, minProperties: 5 }],
+    'object-curly-newline': ['error', { multiline: true, minProperties: 6 }],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
 };
