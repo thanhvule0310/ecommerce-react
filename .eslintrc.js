@@ -20,7 +20,11 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'linebreak-style': 0,
-    'object-curly-newline': ['error', { multiline: true, minProperties: 6 }],
+    'object-curly-newline': ['error', { multiline: true, minProperties: 7 }],
+    'react/prop-types': [
+      0,
+      { ignore: 'ignore', customValidators: 'customValidator' },
+    ],
     'jsx-a11y/label-has-associated-control': [
       'error',
       {

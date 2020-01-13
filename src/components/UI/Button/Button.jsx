@@ -1,18 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './Button.scss';
 
-const Button = ({ children, type }) => (
+const Button = ({ children, type, onClick, isGoogleSignIn }) => (
   // eslint-disable-next-line react/button-has-type
-  <button className="button" type={type}>
+  <button
+    className={`${isGoogleSignIn ? 'google-sign-in' : ''} button`}
+    type={type}
+    onClick={onClick}
+  >
     {children}
   </button>
 );
 
-Button.propTypes = {
-  children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['submit', 'button', 'reset']),
-};
-Button.defaultProps = { type: 'button' };
 export default Button;
