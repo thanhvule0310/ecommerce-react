@@ -19,5 +19,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'linebreak-style': 0,
+    'object-curly-newline': ['error', { multiline: true, minProperties: 5 }],
   },
 };
