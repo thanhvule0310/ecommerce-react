@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './PreviewCollection.scss';
 import CollectionItem from '../CollectionItem/CollectionItem';
@@ -21,17 +20,5 @@ const PreviewCollection = ({ title, items }) => (
     </div>
   </div>
 );
-
-PreviewCollection.propTypes = {
-  title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
 
 export default PreviewCollection;

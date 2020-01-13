@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import './Input.scss';
 import Label from './Label/Label';
 
@@ -21,16 +19,5 @@ const Input = ({ handleChange, label, name, type, value, required }) => (
     ) : null}
   </div>
 );
-
-Input.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  required: PropTypes.bool,
-  label: PropTypes.string,
-};
-
-Input.defaultProps = { required: false, value: '', label: null };
 
 export default Input;
