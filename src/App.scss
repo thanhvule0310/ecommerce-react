@@ -3,6 +3,11 @@ body {
   padding: 20px 60px;
 }
 
+::selection {
+  color: white;
+  background: gray;
+}
+
 a {
   text-decoration: none;
   color: black;

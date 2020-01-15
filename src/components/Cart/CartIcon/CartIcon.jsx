@@ -7,10 +7,10 @@ import { toggleCartHiddenAction } from '../../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../../redux/cart/cart.selectors';
 
 const CartIcon = ({ toggleCartHidden, itemCount }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
+  <button type="button" className="cart-icon" onClick={toggleCartHidden}>
     <ShoppingIcon className="shopping-icon" />
     <span className="item-count">{itemCount}</span>
-  </div>
+  </button>
 );
 
 const mapStateToProps = (state) => ({ itemCount: selectCartItemsCount(state) });
