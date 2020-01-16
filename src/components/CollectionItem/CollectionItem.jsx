@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './CollectionItem.scss';
-import Button from '../UI/Button/Button';
+import { Button } from '../UI/Button/Button';
 import { addItemAction } from '../../redux/cart/cart.actions';
 
 const CollectionItem = ({ item, addItem }) => (

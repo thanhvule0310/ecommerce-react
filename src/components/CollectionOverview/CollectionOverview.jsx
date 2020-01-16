@@ -11,6 +11,7 @@ const CollectionOverview = ({ collections }) => (
     {collections.map((collection) => (
       <CollectionPreview
         key={collection.id}
+        linkUrl={collection.linkUrl}
         title={collection.title}
         items={collection.items}
       />

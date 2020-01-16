@@ -7,6 +7,7 @@ import {
   addItemAction,
   removeItemAction,
 } from '../../redux/cart/cart.actions';
+import { MinimalButton } from '../UI/Button/Button';
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => (
   <div className="checkout-item">
@@ -15,26 +16,18 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => (
     </div>
     <span className="name">{cartItem.name}</span>
     <span className="quantity">
-      <button
-        className="arrow"
-        type="button"
-        onClick={() => removeItem(cartItem)}
-      >
+      <MinimalButton handleClick={() => removeItem(cartItem)}>
         &#10094;
-      </button>
+      </MinimalButton>
       <span className="value">{cartItem.quantity}</span>
-      <button className="arrow" type="button" onClick={() => addItem(cartItem)}>
+      <MinimalButton handleClick={() => addItem(cartItem)}>
         &#10095;
-      </button>
+      </MinimalButton>
     </span>
     <span className="price">${cartItem.price}</span>
-    <button
-      type="button"
-      className="remove-button"
-      onClick={() => clearItem(cartItem)}
-    >
+    <MinimalButton handleClick={() => clearItem(cartItem)}>
       &#10005;
-    </button>
+    </MinimalButton>
   </div>
 );
 

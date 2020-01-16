@@ -2,7 +2,7 @@ import React from 'react';
 
 import './SignIn.scss';
 import Input from '../UI/Input/Input';
-import Button from '../UI/Button/Button';
+import { Button } from '../UI/Button/Button';
 import { auth, signInWithGoogle } from '../../firebase/Firebase';
 
 class SignIn extends React.Component {

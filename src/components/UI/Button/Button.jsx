@@ -21,4 +21,10 @@ const Button = ({
   </button>
 );
 
-export default Button;
+const MinimalButton = ({ handleClick, children }) => (
+  <button type="button" className="minimal-button" onClick={handleClick}>
+    {children}
+  </button>
+);
+
+export { Button, MinimalButton };
