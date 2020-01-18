@@ -8,10 +8,12 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Shop from './pages/Shop/Shop';
 import Auth from './pages/Auth/Auth';
+import Checkout from './pages/Checkout/Checkout';
+
+import NotFound from './pages/NotFound/NotFound';
 import { auth, createUSerProfileDocument } from './firebase/Firebase';
 import { setCurrentUser as setCurrentUserAction } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import Checkout from './pages/Checkout/Checkout';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -51,6 +53,8 @@ class App extends React.Component {
             path="/signin"
             render={() => (currentUser ? <Redirect to="/" /> : <Auth />)}
           />
+          <Route path="/notfound" component={NotFound} />
+          <Redirect to="/notfound" />
         </Switch>
       </div>
     );
