@@ -18,7 +18,7 @@ const Cart = ({ cartItems, history, dispatch }) => (
       )}
     </div>
     <Button
-      handleClick={() => {
+      onClick={() => {
         history.push('/checkout');
         dispatch(toggleCartHiddenAction());
       }}

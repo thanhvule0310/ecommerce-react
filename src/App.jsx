@@ -11,30 +11,11 @@ import Auth from './pages/Auth/Auth';
 import Checkout from './pages/Checkout/Checkout';
 
 import NotFound from './pages/NotFound/NotFound';
-import { auth, createUSerProfileDocument } from './firebase/Firebase';
 import { setCurrentUser as setCurrentUserAction } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUSerProfileDocument(userAuth);
-
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-
-      setCurrentUser(userAuth);
-    });
-  }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();

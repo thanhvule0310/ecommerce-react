@@ -20,7 +20,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'linebreak-style': 0,
-    'object-curly-newline': ['error', { multiline: true, minProperties: 7 }],
+    'object-curly-newline': 0,
     'react/prop-types': [
       0,
       { ignore: 'ignore', customValidators: 'customValidator' },

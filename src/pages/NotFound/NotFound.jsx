@@ -6,14 +6,14 @@ import { Button } from '../../components/UI/Button/Button';
 import { ReactComponent as NotFoundImage } from '../../assets/svg/notfound.svg';
 
 const NotFound = ({ history }) => {
-  const handleClick = () => {
+  const onClick = () => {
     history.push('/');
   };
   return (
     <div className="container-notfound">
       <NotFoundImage className="wrapper-img" />
       <h1>Oops! Page not found</h1>
-      <Button handleClick={handleClick}>Back To Home</Button>
+      <Button onClick={onClick}>Back To Home</Button>
     </div>
   );
 };

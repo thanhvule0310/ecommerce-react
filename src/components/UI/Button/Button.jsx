@@ -5,7 +5,7 @@ import './Button.scss';
 const Button = ({
   children,
   type = 'button',
-  handleClick,
+  onClick,
   isGoogleSignIn,
   inverted,
 }) => (
@@ -15,14 +15,14 @@ const Button = ({
       inverted ? 'inverted' : ''
     } button`}
     type={type}
-    onClick={handleClick}
+    onClick={onClick}
   >
     {children}
   </button>
 );
 
-const MinimalButton = ({ handleClick, children }) => (
-  <button type="button" className="minimal-button" onClick={handleClick}>
+const MinimalButton = ({ onClick, children }) => (
+  <button type="button" className="minimal-button" onClick={onClick}>
     {children}
   </button>
 );
