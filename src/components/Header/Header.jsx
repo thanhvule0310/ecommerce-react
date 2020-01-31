@@ -8,10 +8,14 @@ import { ReactComponent as Logo } from '../../assets/svg/crown.svg';
 import CartIcon from '../Cart/CartIcon/CartIcon';
 import Cart from '../Cart/Cart';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+import {
+  selectCurrentUser,
+  selectLoadingState,
+} from '../../redux/user/user.selectors';
 import { signOutStartAction } from '../../redux/user/user.actions';
+import Loading from '../UI/Loading/Loading';
 
-const Header = ({ currentUser, hidden, signOutStart }) => (
+const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
   <div className="header">
     <Link className="logo-container" to="/">
       <Logo />
@@ -25,7 +29,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
       </Link>
       {currentUser ? (
         <div className="option" onClick={signOutStart}>
-          SIGN OUT
+          {isLoading ? <Loading /> : 'SIGN OUT'}
         </div>
       ) : (
         <Link className="option" to="/signin">
@@ -41,6 +45,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   hidden: selectCartHidden,
+  isLoading: selectLoadingState,
 });
 
 const mapDispatchToProps = (dispatch) => ({

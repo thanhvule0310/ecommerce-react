@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
+import { takeLatest, put, all, call, delay } from 'redux-saga/effects';
 
 import UserActionTypes from './user.types';
 import {
@@ -72,6 +72,7 @@ export function* onCheckUserSession() {
 
 export function* signOut() {
   try {
+    yield delay(500);
     yield auth.signOut();
     yield put(signOutSuccessAction());
   } catch (error) {

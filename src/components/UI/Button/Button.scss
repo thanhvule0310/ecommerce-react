@@ -16,6 +16,9 @@
   transition: all 0.3s;
   display: flex;
   justify-content: center;
+  &:focus {
+    outline: none !important;
+  }
 
   &:hover {
     background-color: white;
@@ -47,8 +50,8 @@
       transform: scale(0.9);
     }
     &:focus {
-      border: none;
-      outline: none;
+      border: none !important;
+      outline: none !important;
     }
   }
 }
