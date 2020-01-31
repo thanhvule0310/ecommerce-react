@@ -20,14 +20,10 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => (
         &#10094;
       </MinimalButton>
       <span className="value">{cartItem.quantity}</span>
-      <MinimalButton onClick={() => addItem(cartItem)}>
-        &#10095;
-      </MinimalButton>
+      <MinimalButton onClick={() => addItem(cartItem)}>&#10095;</MinimalButton>
     </span>
     <span className="price">${cartItem.price}</span>
-    <MinimalButton onClick={() => clearItem(cartItem)}>
-      &#10005;
-    </MinimalButton>
+    <MinimalButton onClick={() => clearItem(cartItem)}>&#10005;</MinimalButton>
   </div>
 );
 

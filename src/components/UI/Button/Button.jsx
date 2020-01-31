@@ -21,8 +21,12 @@ const Button = ({
   </button>
 );
 
-const MinimalButton = ({ onClick, children }) => (
-  <button type="button" className="minimal-button" onClick={onClick}>
+const MinimalButton = ({ onClick, children, className }) => (
+  <button
+    type="button"
+    className={className ? `minimal-button ${className}` : 'minimal-button'}
+    onClick={onClick}
+  >
     {children}
   </button>
 );

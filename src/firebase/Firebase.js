@@ -13,7 +13,7 @@ const config = {
   measurementId: 'G-HGMD4PN5QT',
 };
 
-export const createUSerProfileDocument = async (userAuth, additionalData) => {
+export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return false;
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
@@ -70,6 +70,14 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     return accumulator;
   }, {});
 };
+
+export const getCurrentUser = () =>
+  new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
