@@ -29,7 +29,7 @@ const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
       </Link>
       {currentUser ? (
         <div className="option" onClick={signOutStart}>
-          {isLoading ? <Loading /> : 'SIGN OUT'}
+          {isLoading ? <Loading /> : `SIGN OUT (${currentUser.displayName})`}
         </div>
       ) : (
         <Link className="option" to="/signin">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -15,69 +15,65 @@ import {
 } from '../../redux/user/user.selectors';
 import Loading from '../UI/Loading/Loading';
 
-class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
+const SignIn = ({
+  googleSignInStart,
+  isEmailLoading,
+  isGoogleLoading,
+  emailSignInStart,
+}) => {
+  const [userCredentials, setCredentials] = useState({
+    email: '',
+    password: '',
+  });
 
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
-
-  handleSubmit = async (event) => {
+  const { email, password } = userCredentials;
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = this.state;
-    const { emailSignInStart } = this.props;
 
     emailSignInStart(email, password);
   };
 
-  handleChange = (event) => {
+  const handleChange = (event) => {
     const { value, name } = event.target;
-    this.setState({ [name]: value });
+    setCredentials({ ...userCredentials, [name]: value });
   };
 
-  render() {
-    const { email, password } = this.state;
-    const { googleSignInStart, isEmailLoading, isGoogleLoading } = this.props;
-    return (
-      <div className="sign-in">
-        <h2>I already have an account</h2>
-        <span>Sign in with your email and password</span>
+  return (
+    <div className="sign-in">
+      <h2>I already have an account</h2>
+      <span>Sign in with your email and password</span>
 
-        <form onSubmit={this.handleSubmit}>
-          <Input
-            name="email"
-            type="email"
-            value={email}
-            required
-            handleChange={this.handleChange}
-            label="email"
-          />
+      <form onSubmit={handleSubmit}>
+        <Input
+          name="email"
+          type="email"
+          value={email}
+          required
+          handleChange={handleChange}
+          label="email"
+        />
 
-          <Input
-            name="password"
-            type="password"
-            value={password}
-            required
-            handleChange={this.handleChange}
-            label="password"
-          />
+        <Input
+          name="password"
+          type="password"
+          value={password}
+          required
+          handleChange={handleChange}
+          label="password"
+        />
 
-          <div className="wrapper-buttons">
-            <Button type="submit">
-              {isEmailLoading ? <Loading /> : 'Sign in'}
-            </Button>
-            <Button type="button" onClick={googleSignInStart} isGoogleSignIn>
-              {isGoogleLoading ? <Loading /> : 'Sign in with Google'}
-            </Button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+        <div className="wrapper-buttons">
+          <Button type="submit">
+            {isEmailLoading ? <Loading /> : 'Sign in'}
+          </Button>
+          <Button type="button" onClick={googleSignInStart} isGoogleSignIn>
+            {isGoogleLoading ? <Loading /> : 'Sign in with Google'}
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   isEmailLoading: selectEmailSignInLoading,
