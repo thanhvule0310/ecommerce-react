@@ -10,7 +10,7 @@ import Cart from '../Cart/Cart';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import {
   selectCurrentUser,
-  selectLoadingState,
+  selectSignOutLoading,
 } from '../../redux/user/user.selectors';
 import { signOutStartAction } from '../../redux/user/user.actions';
 import Loading from '../UI/Loading/Loading';
@@ -45,7 +45,7 @@ const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   hidden: selectCartHidden,
-  isLoading: selectLoadingState,
+  isLoading: selectSignOutLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -9,7 +9,10 @@ import {
   googleSignInStartAction,
   emailSignInStartAction,
 } from '../../redux/user/user.actions';
-import { selectLoadingState } from '../../redux/user/user.selectors';
+import {
+  selectEmailSignInLoading,
+  selectGoogleSignInLoading,
+} from '../../redux/user/user.selectors';
 import Loading from '../UI/Loading/Loading';
 
 class SignIn extends React.Component {
@@ -37,7 +40,7 @@ class SignIn extends React.Component {
 
   render() {
     const { email, password } = this.state;
-    const { googleSignInStart, isLoading } = this.props;
+    const { googleSignInStart, isEmailLoading, isGoogleLoading } = this.props;
     return (
       <div className="sign-in">
         <h2>I already have an account</h2>
@@ -63,9 +66,11 @@ class SignIn extends React.Component {
           />
 
           <div className="wrapper-buttons">
-            <Button type="submit">{isLoading ? <Loading /> : 'Sign in'}</Button>
+            <Button type="submit">
+              {isEmailLoading ? <Loading /> : 'Sign in'}
+            </Button>
             <Button type="button" onClick={googleSignInStart} isGoogleSignIn>
-              Sign in with Google
+              {isGoogleLoading ? <Loading /> : 'Sign in with Google'}
             </Button>
           </div>
         </form>
@@ -75,7 +80,8 @@ class SignIn extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  isLoading: selectLoadingState,
+  isEmailLoading: selectEmailSignInLoading,
+  isGoogleLoading: selectGoogleSignInLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

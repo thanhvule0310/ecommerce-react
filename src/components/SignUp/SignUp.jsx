@@ -1,9 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import './SignUp.scss';
 import Input from '../UI/Input/Input';
 import { Button } from '../UI/Button/Button';
-import { auth, createUserProfileDocument } from '../../firebase/Firebase';
+import { signUpStartAction } from '../../redux/user/user.actions';
+import { selectSignUpLoading } from '../../redux/user/user.selectors';
+import Loading from '../UI/Loading/Loading';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -19,27 +23,12 @@ class SignUp extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
+    const { signUpStart } = this.props;
     if (password !== confirmPassword) {
       alert('passwords do not match');
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password,
-      );
-
-      await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    signUpStart({ displayName, email, password });
   };
 
   handleChange = (event) => {
@@ -49,6 +38,7 @@ class SignUp extends React.Component {
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
+    const { isLoading } = this.props;
     return (
       <div className="sign-up">
         <h2 className="title">I do not have a account</h2>
@@ -86,11 +76,22 @@ class SignUp extends React.Component {
             label="Confirm password"
             required
           />
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit">
+            {isLoading ? <Loading /> : 'Sign in with Google'}
+          </Button>
         </form>
       </div>
     );
   }
 }
 
-export default SignUp;
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectSignUpLoading,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (userCredientials) =>
+    dispatch(signUpStartAction(userCredientials)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
