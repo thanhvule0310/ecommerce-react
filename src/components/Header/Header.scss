@@ -17,10 +17,24 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    font-size: 20px;
 
     .option {
       padding: 10px 20px;
       cursor: pointer;
+
+      &:hover {
+        &::before {
+          content: '/';
+          position: absolute;
+          margin-left: -10px;
+        }
+        &::after {
+          content: '/';
+          position: absolute;
+          margin-right: 10px;
+        }
+      }
     }
   }
 }

@@ -6,11 +6,13 @@ import { createStructuredSelector } from 'reselect';
 import './App.scss';
 
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import GlobalSpinner from './components/UI/Spinner/GlobalSpinner/GlobalSpinner';
 import { checkUserSessionAction } from './redux/user/user.actions';
 import { selectCurrentUser, selectAlert } from './redux/user/user.selectors';
 import NotFound from './pages/NotFound/NotFound';
 import Alert from './components/UI/Alert/Alert';
+import ButtonToTop from './components/ButtonToTop/ButtonToTop';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
@@ -42,6 +44,8 @@ const App = ({ currentUser, checkUserSession, alert }) => {
           </Suspense>
         </NotFound>
       </Switch>
+      <ButtonToTop />
+      <Footer />
     </div>
   );
 };

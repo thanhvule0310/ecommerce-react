@@ -6,9 +6,13 @@ import CollectionItem from '../CollectionItem/CollectionItem';
 
 const CollectionPreview = ({ title, items }) => (
   <div className="collection-preview">
-    <Link to={`/shop/${title.toLowerCase()}`} className="title">
-      {title}
-    </Link>
+    <div className="collection-header">
+      <div className="title">{title}</div>
+      <Link to={`/shop/${title.toLowerCase()}`} className="view-all">
+        View all &rarr;
+      </Link>
+    </div>
+
     <div className="preview">
       {items
         .filter((item, index) => index < 4)
