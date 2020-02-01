@@ -14,7 +14,15 @@ import {
   signOutFailedAction,
   signUpFailedAction,
   signUpSuccessAction,
+  showAlertAction,
+  clearAlertAction,
 } from './user.actions';
+import AlertTypes from '../../utils/AlertTypes/AlertTypes';
+
+export function* Alert(content) {
+  yield put(clearAlertAction());
+  yield put(showAlertAction(content));
+}
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
@@ -36,8 +44,10 @@ export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
+    yield Alert(AlertTypes.signIn.success);
   } catch (error) {
     yield put(signInFailedAction(error.message));
+    yield Alert(AlertTypes.signIn.error);
   }
 }
 
@@ -49,8 +59,10 @@ export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
     yield getSnapshotFromUserAuth(user);
+    yield Alert(AlertTypes.signIn.success);
   } catch (error) {
     yield put(signInFailedAction(error.message));
+    yield Alert({ type: 'error', message: error.message });
   }
 }
 
@@ -63,8 +75,10 @@ export function* isUserAuthenticated() {
     const userAuth = yield getCurrentUser();
     if (!userAuth) return;
     yield getSnapshotFromUserAuth(userAuth);
+    yield Alert(AlertTypes.signIn.success);
   } catch (error) {
     yield put(signInFailedAction(error.message));
+    yield Alert({ type: 'error', message: error.message });
   }
 }
 
@@ -77,8 +91,10 @@ export function* signOut() {
     yield delay(500);
     yield auth.signOut();
     yield put(signOutSuccessAction());
+    yield Alert(AlertTypes.signOut.success);
   } catch (error) {
     yield put(signOutFailedAction(error.message));
+    yield Alert({ type: 'error', message: error.message });
   }
 }
 
@@ -91,8 +107,10 @@ export function* signUp({ payload: { email, password, displayName } }) {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
 
     yield put(signUpSuccessAction({ user, additionalData: { displayName } }));
+    yield Alert(AlertTypes.signUp.success);
   } catch (error) {
     yield put(signUpFailedAction(error.message));
+    yield Alert({ type: 'error', message: error.message });
   }
 }
 

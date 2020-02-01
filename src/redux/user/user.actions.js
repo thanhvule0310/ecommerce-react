@@ -54,3 +54,12 @@ export const signUpFailedAction = (error) => ({
   type: UserActionTypes.SIGN_UP_FAILED,
   payload: error,
 });
+
+export const showAlertAction = (alertContent) => ({
+  type: UserActionTypes.SHOW_ALERT,
+  payload: alertContent,
+});
+
+export const clearAlertAction = () => ({
+  type: UserActionTypes.CLEAR_ALERT,
+});

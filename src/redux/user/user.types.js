@@ -11,6 +11,8 @@ const UserActionTypes = {
   SIGN_UP_START: 'SIGN_UP_START',
   SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
   SIGN_UP_FAILED: 'SIGN_UP_FAILED',
+  SHOW_ALERT: 'SHOW_ALERT',
+  CLEAR_ALERT: 'CLEAR_ALERT',
 };
 
 export default UserActionTypes;

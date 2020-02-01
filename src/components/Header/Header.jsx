@@ -13,7 +13,7 @@ import {
   selectSignOutLoading,
 } from '../../redux/user/user.selectors';
 import { signOutStartAction } from '../../redux/user/user.actions';
-import Loading from '../UI/Loading/Loading';
+import Spinner from '../UI/Spinner/Spinner';
 
 const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
   <div className="header">
@@ -29,7 +29,7 @@ const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
       </Link>
       {currentUser ? (
         <div className="option" onClick={signOutStart}>
-          {isLoading ? <Loading /> : `SIGN OUT (${currentUser.displayName})`}
+          {isLoading ? <Spinner /> : `SIGN OUT (${currentUser.displayName})`}
         </div>
       ) : (
         <Link className="option" to="/signin">

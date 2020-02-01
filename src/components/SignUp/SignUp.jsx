@@ -7,7 +7,7 @@ import Input from '../UI/Input/Input';
 import { Button } from '../UI/Button/Button';
 import { signUpStartAction } from '../../redux/user/user.actions';
 import { selectSignUpLoading } from '../../redux/user/user.selectors';
-import Loading from '../UI/Loading/Loading';
+import Spinner from '../UI/Spinner/Spinner';
 
 const SignUp = ({ signUpStart, isLoading }) => {
   const [userCredentials, setUserCredentials] = useState({
@@ -70,7 +70,7 @@ const SignUp = ({ signUpStart, isLoading }) => {
           label="Confirm password"
           required
         />
-        <Button type="submit">{isLoading ? <Loading /> : 'Sign Up'}</Button>
+        <Button type="submit">{isLoading ? <Spinner /> : 'Sign Up'}</Button>
       </form>
     </div>
   );

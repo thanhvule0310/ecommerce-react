@@ -36,7 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   right: 0;
   top: 0;
@@ -46,7 +46,9 @@
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-  animation: showAlert 0.5s, hideAlert 0.5s 10s forwards;
+  animation: showAlert 0.5s, hideAlert 0.5s 5s forwards;
+
+  border: 2px solid #000000;
 
   &:hover {
     -webkit-animation-play-state: paused;
@@ -90,12 +92,11 @@
   right: 0;
   height: 5px;
   width: 100%;
-  animation: processTimeout 10s forwards;
+  animation: processTimeout 5s forwards;
 }
 
 .primary {
   @include alert;
-  border: 2px solid #5edfff;
   .process {
     @include process;
     background-color: #5edfff;
@@ -104,7 +105,6 @@
 
 .error {
   @include alert;
-  border: 2px solid #f66767;
   .process {
     @include process;
     background-color: #f66767;
@@ -113,7 +113,6 @@
 
 .success {
   @include alert;
-  border: 2px solid #52de97;
   .process {
     @include process;
     background-color: #52de97;

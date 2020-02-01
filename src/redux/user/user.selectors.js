@@ -7,6 +7,8 @@ export const selectCurrentUser = createSelector(
   (user) => user.currentUser,
 );
 
+export const selectAlert = createSelector([selectUser], (user) => user.alert);
+
 export const selectLoading = createSelector(
   [selectUser],
   (user) => user.loading,

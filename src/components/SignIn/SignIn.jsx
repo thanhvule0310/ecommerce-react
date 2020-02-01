@@ -13,7 +13,7 @@ import {
   selectEmailSignInLoading,
   selectGoogleSignInLoading,
 } from '../../redux/user/user.selectors';
-import Loading from '../UI/Loading/Loading';
+import Spinner from '../UI/Spinner/Spinner';
 
 const SignIn = ({
   googleSignInStart,
@@ -64,10 +64,10 @@ const SignIn = ({
 
         <div className="wrapper-buttons">
           <Button type="submit">
-            {isEmailLoading ? <Loading /> : 'Sign in'}
+            {isEmailLoading ? <Spinner /> : 'Sign in'}
           </Button>
           <Button type="button" onClick={googleSignInStart} isGoogleSignIn>
-            {isGoogleLoading ? <Loading /> : 'Sign in with Google'}
+            {isGoogleLoading ? <Spinner /> : 'Sign in with Google'}
           </Button>
         </div>
       </form>
