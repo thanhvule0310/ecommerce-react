@@ -14,12 +14,14 @@ import {
 } from '../../redux/user/user.selectors';
 import { signOutStartAction } from '../../redux/user/user.actions';
 import Spinner from '../UI/Spinner/Spinner';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
   <div className="header">
     <Link className="logo-container" to="/">
       <Logo />
     </Link>
+    <SearchBar name="search" type="text" />
     <div className="options">
       <Link className="option" to="/shop">
         SHOP
