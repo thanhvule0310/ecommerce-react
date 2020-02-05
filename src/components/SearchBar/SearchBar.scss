@@ -64,11 +64,11 @@ $main-color: black;
 @media (max-width: 768px) {
   .group-search {
     position: absolute;
-    left: 0;
+    right: -45px;
     top: 0;
     padding: 20px;
-  }
-  .form-input-search {
-    width: 100px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
   }
 }
