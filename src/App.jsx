@@ -18,6 +18,7 @@ const Home = lazy(() => import('./pages/Home/Home'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
 const Auth = lazy(() => import('./pages/Auth/Auth'));
 const Checkout = lazy(() => import('./pages/Checkout/Checkout'));
+const Results = lazy(() => import('./pages/SearchResult/SearchResult'));
 
 const App = ({ currentUser, checkUserSession, alert }) => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const App = ({ currentUser, checkUserSession, alert }) => {
               render={() => (currentUser ? <Redirect to="/" /> : <Auth />)}
             />
             <Route path="/notfound" component={NotFound} />
+            <Route path="/results" component={Results} />
           </Suspense>
         </NotFound>
       </Switch>

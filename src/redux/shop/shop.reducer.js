@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   collections: null,
   isFetching: false,
   errorMessage: '',
+  keyword: '',
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +15,8 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return { ...state, isFetching: false, collections: action.payload };
     case actionTypes.FETCH_COLLECTIONS_FAILED:
       return { ...state, isFetching: false, errorMessage: action.payload };
+    case actionTypes.SET_SEARCH_KEYWORD:
+      return { ...state, keyword: action.payload };
     default:
       return state;
   }

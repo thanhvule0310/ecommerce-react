@@ -61,3 +61,18 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    width: 100vw;
+    font-size: 15px;
+    background-color: black;
+    color: white !important;
+    &__item {
+      color: white;
+    }
+    &__navigation {
+      border-top: 1px solid white;
+    }
+  }
+}

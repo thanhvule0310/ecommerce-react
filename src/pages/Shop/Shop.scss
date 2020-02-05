@@ -1,0 +1,9 @@
+.shop-page {
+  margin: 30px auto;
+}
+@media (max-width: 768px) {
+  .shop-page {
+    margin: 0;
+    padding: 20px;
+  }
+}

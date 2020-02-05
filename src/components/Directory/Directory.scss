@@ -5,3 +5,13 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .directory-menu {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+  }
+}

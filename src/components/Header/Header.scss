@@ -8,12 +8,10 @@
 
   .logo-container {
     height: 100%;
-    width: 70px;
-    padding-top: 25px;
   }
 
-  .options {
-    width: 50%;
+  &__options {
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -36,6 +34,21 @@
           margin-right: 10px;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .logo-container {
+      padding: 10px;
+    }
+    &__logo {
+      width: 40px;
+    }
+    &__options {
+      font-size: 15px;
+      width: 80%;
     }
   }
 }

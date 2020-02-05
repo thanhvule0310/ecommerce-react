@@ -19,10 +19,10 @@ import SearchBar from '../SearchBar/SearchBar';
 const Header = ({ currentUser, hidden, signOutStart, isLoading }) => (
   <div className="header">
     <Link className="logo-container" to="/">
-      <Logo />
+      <Logo className="header__logo" />
     </Link>
-    <SearchBar name="search" type="text" />
-    <div className="options">
+    <SearchBar />
+    <div className="header__options">
       <Link className="option" to="/shop">
         SHOP
       </Link>

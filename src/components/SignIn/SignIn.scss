@@ -11,3 +11,16 @@
     justify-content: space-between;
   }
 }
+
+@media (max-width: 768px) {
+  .sign-in {
+    width: 100%;
+    padding: 20px;
+    .title {
+      margin: 0;
+    }
+    .form {
+      padding: 0;
+    }
+  }
+}

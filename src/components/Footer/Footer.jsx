@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Footer.scss';
 import { ReactComponent as Logo } from '../../assets/svg/crown.svg';
@@ -6,7 +7,9 @@ import { ReactComponent as Logo } from '../../assets/svg/crown.svg';
 const Footer = () => (
   <footer className="footer">
     <div className="footer__logo-box">
-      <Logo className="footer__logo" />
+      <Link className="logo-container" to="/">
+        <Logo className="footer__logo" />
+      </Link>
     </div>
     <div className="row">
       <div>

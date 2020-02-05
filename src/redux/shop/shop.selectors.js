@@ -27,3 +27,8 @@ export const selectIsCollectionLoaded = createSelector(
   [selectShop],
   (shop) => !!shop.collections,
 );
+
+export const selectSearchKeyword = createSelector(
+  [selectShop],
+  (shop) => shop.keyword,
+);

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import './Shop.scss';
 import CollectionOverviewContainer from '../../components/CollectionOverview/CollectionOverviewContainer';
 import CollectionContainer from '../Collection/CollectionContainer';
 import { fetchCollectionsStartAction } from '../../redux/shop/shop.actions';
