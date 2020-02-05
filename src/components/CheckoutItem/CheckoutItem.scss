@@ -46,3 +46,9 @@
     outline: none;
   }
 }
+
+@media (max-width: 768px) {
+  .checkout-item {
+    font-size: 15px;
+  }
+}
