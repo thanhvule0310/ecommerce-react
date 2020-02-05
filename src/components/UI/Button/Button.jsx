@@ -13,7 +13,7 @@ const Button = ({
   <button
     className={`${isGoogleSignIn ? 'google-sign-in' : ''} ${
       inverted ? 'inverted' : ''
-    } button`}
+    } button btn-success`}
     type={type}
     onClick={onClick}
   >

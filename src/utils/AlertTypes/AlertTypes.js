@@ -11,6 +11,10 @@ const alertTypes = {
     success: { type: 'success', message: 'Sign Out success.' },
     error: { type: 'error', message: 'Sign Out Failed,check your network.' },
   },
+  cart: {
+    success: { type: 'success', message: 'Add item to carts success.' },
+    error: { type: 'error', message: 'Sign Out Failed,check your network.' },
+  },
 };
 
 export default alertTypes;
